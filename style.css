@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 nav > *{
     display: inline-block;
@@ -7,7 +8,7 @@ nav > *{
   font-optical-sizing: auto;
   font-style: normal;
   margin: 0px;
-  color: lightgreen;
+  color: rgb(0, 103, 55);
 }
 nav > h1{
     font-weight: 700;
@@ -25,8 +26,35 @@ nav{
     padding-top: 5px ;
     padding-left: 10px;
     padding-bottom: 5px;
-    background-color:forestgreen;
+    background-color:wheat;
 }
 body{
     margin: 0px;
+    background-color: rgb(0, 103, 55);
+}
+h2{
+    font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+  margin: 0px;
+  color: wheat;
+}
+p{
+    font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-size: 15px;
+  font-style: normal;
+  margin: 0px;
+  margin-top: 8px;
+  color: wheat;
+}
+.textbox{
+    padding: 25px;
+    
+}
+.textbox > *{
+    text-align: center;
+}
+hr{
+    border-color: wheat;
 }
