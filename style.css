@@ -1,6 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
-
+@media only screen and (max-width: 767px) {
+     html > *:not(.oops){
+        visibility: hidden;
+    }
+    .oops{
+        visibility: visible;
+    }
+}
+@media only screen and (min-width: 767px) {
+    html > *:not(.oops){
+        visibility: visible;
+    }
+    .oops{
+        visibility: hidden;
+    }
+}
 nav > *{
     display: inline-block;
     
