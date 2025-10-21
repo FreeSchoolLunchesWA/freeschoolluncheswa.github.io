@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Petition for Free School Lunches</title>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <nav><h1>Free School Lunches WA</h1>
+    <a href="./index.html">Home</a>
+    <a href="./petition.html">Sign the Petition</a>
+    </nav>
+  <h1>Sign the Petition</h1>
+  <form id="petitionForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="text" id="school" placeholder="Your School">
+    <button type="submit">Sign</button>
+  </form>
+<script type="module">
+
+  // Import the functions you need from the SDKs you need
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+
+  // Your web app's Firebase configuration
+
+  const firebaseConfig = {
+
+    apiKey: "AIzaSyCNIOBInWvtt7fKEUi3WbGy_msPFal56Zo",
+
+    authDomain: "fslwapetition.firebaseapp.com",
+
+    projectId: "fslwapetition",
+
+    storageBucket: "fslwapetition.firebasestorage.app",
+
+    messagingSenderId: "602273831421",
+
+    appId: "1:602273831421:web:b8ef99c8c42f653dd7e194"
+
+  };
+
+
+  
+
+  
+  // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Handle form submission
+    document.getElementById("petitionForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const school = document.getElementById("school").value;
+
+      await db.collection("signatures").add({
+        name,
+        email,
+        school,
+        timestamp: new Date()
+      });
+
+      alert("Thanks for signing!");
+      e.target.reset();
+    });
+</script>
