@@ -2,15 +2,19 @@
 <html>
 <head>
   <title>Petition for Free School Lunches</title>
-  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
-     <nav><h1>Free School Lunches WA</h1>
+  <nav>
+    <h1>Free School Lunches WA</h1>
     <a href="./index.html">Home</a>
     <a href="./petition.html">Sign the Petition</a>
-    </nav>
+  </nav>
+
   <h1>Sign the Petition</h1>
   <form id="petitionForm">
     <input type="text" id="name" placeholder="Your Name" required>
@@ -18,42 +22,20 @@
     <input type="text" id="school" placeholder="Your School">
     <button type="submit">Sign</button>
   </form>
-<script>
 
-  // Import the functions you need from the SDKs you need
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCNIOBInWvtt7fKEUi3WbGy_msPFal56Zo",
+      authDomain: "fslwapetition.firebaseapp.com",
+      projectId: "fslwapetition",
+      storageBucket: "fslwapetition.appspot.com",
+      messagingSenderId: "602273831421",
+      appId: "1:602273831421:web:b8ef99c8c42f653dd7e194"
+    };
 
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
-
-  // TODO: Add SDKs for Firebase products that you want to use
-
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-
-  // Your web app's Firebase configuration
-
-  const firebaseConfig = {
-
-    apiKey: "AIzaSyCNIOBInWvtt7fKEUi3WbGy_msPFal56Zo",
-
-    authDomain: "fslwapetition.firebaseapp.com",
-
-    projectId: "fslwapetition",
-
-    storageBucket: "fslwapetition.firebasestorage.app",
-
-    messagingSenderId: "602273831421",
-
-    appId: "1:602273831421:web:b8ef99c8c42f653dd7e194"
-
-  };
-
-
-  
-
-  
-  // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
     // Handle form submission
@@ -63,14 +45,20 @@
       const email = document.getElementById("email").value;
       const school = document.getElementById("school").value;
 
-      await db.collection("signatures").add({
-        name,
-        email,
-        school,
-        timestamp: new Date()
-      });
-
-      alert("Thanks for signing!");
-      e.target.reset();
+      try {
+        await db.collection("signatures").add({
+          name,
+          email,
+          school,
+          timestamp: new Date()
+        });
+        alert("Thanks for signing!");
+        e.target.reset();
+      } catch (error) {
+        console.error("Error submitting petition:", error);
+        alert("Something went wrong. Please try again.");
+      }
     });
-</script>
+  </script>
+</body>
+</html>
