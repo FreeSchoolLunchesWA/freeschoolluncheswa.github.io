@@ -64,6 +64,16 @@ p{
   margin-top: 8px;
   color: wheat;
 }
+p > a{
+    
+    font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-style: normal;
+  margin: 0px;
+  margin-top: 8px;
+  color: wheat;
+}
 .textbox{
     padding: 25px;
     height: 150px;
