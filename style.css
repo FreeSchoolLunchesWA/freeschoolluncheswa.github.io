@@ -55,6 +55,14 @@ h2{
   margin: 0px;
   color: wheat;
 }
+h3{
+    font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 26px;
+  margin: 0px;
+  color: wheat;
+}
 .textbox > h1{
     font-family: "Libre Baskerville", serif;
   font-weight: 700;
