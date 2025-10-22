@@ -55,6 +55,14 @@ h2{
   margin: 0px;
   color: wheat;
 }
+.textbox > h1{
+    font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 60px;
+  margin: 0px;
+  color: wheat;
+}
 p{
     font-family: "Libre Baskerville", serif;
   font-weight: 400;
@@ -105,5 +113,31 @@ hr{
             border-radius: 15px;
             width: 0%;
         }
+ul {
+  list-style: none;
+  padding: 0;
+  width: 50%;
+  margin-left: 25%;
+}
 
-        
+ul> li {
+  position: relative;
+  padding: 0.5em 0.5em;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-style: normal;
+  margin: 0px;
+  color: wheat;
+}
+
+ul> li::before {
+  content: " > ";
+  position: absolute;
+  left: 0;
+}
+
+
+
